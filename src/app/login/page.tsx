@@ -2,7 +2,7 @@
 export default function Login() {
   return (
     <div>
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="flex items-center justify-center h-full bg-gray-100">
   <div className="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
     {/* left side */}
     <div className="flex flex-col justify-start p-8 md:p-14">
