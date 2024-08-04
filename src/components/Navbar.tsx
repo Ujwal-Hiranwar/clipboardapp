@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <div>
       <>
-  {/* Hello world */}
+  
   <header className="bg-white">
     <div className="container mx-auto shadow-lg px-6 py-3 flex justify-between items-center">
       <a href="#" className="text-gray-800 text-2xl font-bold font-serif ml-8">

@@ -1,25 +1,40 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+    "/_not-found/page": [
+      "static/chunks/webpack-200e6d3e4056e3f4.js",
+      "static/chunks/fd9d1056-2821b0f0cabcd8bd.js",
+      "static/chunks/23-b75664ace61c0abb.js",
+      "static/chunks/main-app-e5f4b2f683b6b781.js",
+      "static/chunks/app/_not-found/page-05886c10710171db.js"
     ],
     "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
-    ],
-    "/register/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/register/page.js"
+      "static/chunks/webpack-200e6d3e4056e3f4.js",
+      "static/chunks/fd9d1056-2821b0f0cabcd8bd.js",
+      "static/chunks/23-b75664ace61c0abb.js",
+      "static/chunks/main-app-e5f4b2f683b6b781.js",
+      "static/css/021133170cfe0e27.css",
+      "static/chunks/app/layout-27d4dd22b46d1917.js"
     ],
     "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/login/page.js"
+      "static/chunks/webpack-200e6d3e4056e3f4.js",
+      "static/chunks/fd9d1056-2821b0f0cabcd8bd.js",
+      "static/chunks/23-b75664ace61c0abb.js",
+      "static/chunks/main-app-e5f4b2f683b6b781.js",
+      "static/chunks/app/login/page-310346cd28a34920.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-200e6d3e4056e3f4.js",
+      "static/chunks/fd9d1056-2821b0f0cabcd8bd.js",
+      "static/chunks/23-b75664ace61c0abb.js",
+      "static/chunks/main-app-e5f4b2f683b6b781.js",
+      "static/chunks/app/page-9344662f4acd3548.js"
+    ],
+    "/register/page": [
+      "static/chunks/webpack-200e6d3e4056e3f4.js",
+      "static/chunks/fd9d1056-2821b0f0cabcd8bd.js",
+      "static/chunks/23-b75664ace61c0abb.js",
+      "static/chunks/main-app-e5f4b2f683b6b781.js",
+      "static/chunks/app/register/page-c3f9860d5ecc709c.js"
     ]
   }
 }

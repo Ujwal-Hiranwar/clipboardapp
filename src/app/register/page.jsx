@@ -60,7 +60,7 @@ export default function Register() {
         Sign up
       </button>
       <div className="text-center text-gray-400">
-        Don't have an account?
+        Don&apost have an account?
         <span className="font-bold text-black hover:text-blue-500 hover:underline cursor-pointer">
           Sign up for free
         </span>
