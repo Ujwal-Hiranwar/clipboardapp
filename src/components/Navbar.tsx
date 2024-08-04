@@ -5,8 +5,8 @@ export default function Navbar() {
     <div>
       <>
   {/* Hello world */}
-  <header className="bg-white shadow">
-    <div className="container mx-auto px-6 py-3 flex justify-between items-center">
+  <header className="bg-white">
+    <div className="container mx-auto shadow-lg px-6 py-3 flex justify-between items-center">
       <a href="#" className="text-gray-800 text-2xl font-bold font-serif ml-8">
         PERSONA
       </a>
@@ -59,11 +59,18 @@ export default function Navbar() {
           className="px-4 py-2 border rounded-full text-gray-700"
         />
         <a
+          href="/login"
+          className="text-Black-600 hover:text-gray-800"
+          style={{ fontSize: 14 }}
+        >
+          <b>Login</b>
+        </a>
+        <a
           href="/register"
           className="text-Black-600 hover:text-gray-800"
           style={{ fontSize: 14 }}
         >
-          <b>Login/Register</b>
+          <b>Register</b>
         </a>
       </div>
     </div>

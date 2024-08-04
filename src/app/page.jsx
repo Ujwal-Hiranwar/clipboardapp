@@ -4,10 +4,19 @@ export default function page(props) {
  
   return (
     <>
-  <section className="container mx-auto px-6 py-12">
+
+  <section className="container mx-auto px-4 pb-12">
+    <div className="flex flex-row h-[550px] w-full mt-8 rounded-2xl pb-8 bg-neutral-700">
+      <div className="flex flex-col">
+        
+      <div className="text-5xl h-[200px] w-[700px] text-center text-white mt-28">EXPLORE FASHION WITH PERSONA </div>
+      <a href="/login" className=" bg-white text-black mx-[200px] text-3xl p-[30px] font-serif text-center rounded-xl hover:underline hover:text-white hover:bg-neutral-900">GET STARTED ➟</a>
+      </div>
+      <img src="" alt="" />
+    </div>
     {/* Text Above Banner */}
     <div className="banner-text">
-      <h1 className="text-5xl font-bold mb-4">Find Your Fashion</h1>
+      <h1 className="text-5xl  my-4">FIND YOUR FASHION</h1>
       <p className="text-lg mb-8">
         Elevate Your Style with Latest Trends, <b>Shop Now!!!</b>
       </p>
@@ -32,9 +41,13 @@ export default function page(props) {
     </div>
   </section>
   {/* Product Section */}
+  <div className="banner-text">
+      <h1 className="text-5xl  mb-4">OUR PRODUCTS</h1>
+      
+    </div>
   <section className="container mx-auto px-6 py-12">
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 ">
-      <div className="bg-white p-6 rounded-lg shadow-lg text-center w-80">
+      <div className="bg-white p-6 rounded-lg shadow-2xl bg-zinc-50 text-center w-80">
         <img
           src="https://rukminim2.flixcart.com/image/640/768/xif0q/shopsy-t-shirt/6/4/d/xl-shts-black-dressbiz-original-imagzehuuhgdhrpz.jpeg?q=60&crop=false"
           alt="cloth1"
@@ -47,7 +60,7 @@ export default function page(props) {
           Add to Cart
         </button>
       </div>
-      <div className="bg-white p-6 rounded-lg shadow-lg text-center w-80">
+      <div className="bg-white p-6 rounded-lg shadow-2xl bg-zinc-50 text-center w-80">
         <img
           src="https://rukminim2.flixcart.com/image/440/284/xif0q/shopsy-track-pant/c/g/x/30-tiger-style-tigerstyle-original-imah2b4tczqre6qg.jpeg?q=60"
           alt="cloth1"
@@ -60,7 +73,7 @@ export default function page(props) {
           Add to Cart
         </button>
       </div>
-      <div className="bg-white p-6 rounded-lg shadow-lg text-center w-80">
+      <div className="bg-white p-6 rounded-lg shadow-2xl bg-zinc-50 text-center w-80">
         <img
           src="https://rukminim2.flixcart.com/image/640/768/xif0q/shopsy-t-shirt/6/4/d/xl-shts-black-dressbiz-original-imagzehuuhgdhrpz.jpeg?q=60&crop=false"
           alt="cloth1"
@@ -73,7 +86,7 @@ export default function page(props) {
           Add to Cart
         </button>
       </div>
-      <div className="bg-white p-6 rounded-lg shadow-lg text-center w-80">
+      <div className="bg-white p-6 rounded-lg shadow-2xl bg-zinc-50 text-center w-80">
         <img
           src="https://assets.ajio.com/medias/sys_master/root/20240610/6WXH/6666823005ac7d77bbb2aef4/-473Wx593H-700067419-wine-MODEL.jpg"
           alt="cloth1"
@@ -86,7 +99,7 @@ export default function page(props) {
           Add to Cart
         </button>
       </div>
-      <div className="bg-white p-6 rounded-lg shadow-lg text-center w-80">
+      <div className="bg-white p-6 rounded-lg shadow-2xl bg-zinc-50 text-center w-80">
         <img
           src="https://rukminim2.flixcart.com/image/640/768/xif0q/shopsy-t-shirt/6/4/d/xl-shts-black-dressbiz-original-imagzehuuhgdhrpz.jpeg?q=60&crop=false"
           alt="cloth1"
@@ -99,7 +112,7 @@ export default function page(props) {
           Add to Cart
         </button>
       </div>
-      <div className="bg-white p-6 rounded-lg shadow-lg text-center w-80">
+      <div className="bg-white p-6 rounded-lg shadow-2xl bg-zinc-50 text-center w-80">
         <img
           src="https://rukminim2.flixcart.com/image/640/768/xif0q/shopsy-t-shirt/6/4/d/xl-shts-black-dressbiz-original-imagzehuuhgdhrpz.jpeg?q=60&crop=false"
           alt="cloth1"
@@ -112,7 +125,7 @@ export default function page(props) {
           Add to Cart
         </button>
       </div>
-      <div className="bg-white p-6 rounded-lg shadow-lg text-center w-80">
+      <div className="bg-white p-6 rounded-lg shadow-2xl bg-zinc-50 text-center w-80">
         <img
           src="https://rukminim2.flixcart.com/image/640/768/xif0q/shopsy-t-shirt/6/4/d/xl-shts-black-dressbiz-original-imagzehuuhgdhrpz.jpeg?q=60&crop=false"
           alt="cloth1"
