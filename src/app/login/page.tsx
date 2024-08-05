@@ -86,7 +86,7 @@ export default function Login() {
       <div className="text-center text-gray-400">
         Don&apost have an account?
         <span className="font-bold text-black hover:text-blue-500 hover:underline cursor-pointer">
-          Sign up for free
+          <a href="/register">Sign up for free</a> 
         </span>
       </div>
     </div>

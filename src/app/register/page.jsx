@@ -62,12 +62,7 @@ export default function Register() {
       <button className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300">
         Sign up
       </button>
-      <div className="text-center text-gray-400">
-        Don&apost have an account?
-        <span className="font-bold text-black hover:text-blue-500 hover:underline cursor-pointer">
-          Sign up for free
-        </span>
-      </div>
+      
     </div>
     {/* right side */}
     <div className="ecommerce">
