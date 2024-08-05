@@ -6,13 +6,16 @@ export default function page(props) {
     <>
 
   <section className="container mx-auto px-4 pb-12">
-    <div className="flex flex-row h-[550px] w-full mt-8 rounded-2xl pb-8 bg-neutral-700">
+    <div className="flex flex-row justify-between h-[550px] w-full mt-8 rounded-2xl pb-8 bg-neutral-700">
       <div className="flex flex-col">
         
       <div className="text-5xl h-[200px] w-[700px] text-center text-white mt-28">EXPLORE FASHION WITH PERSONA </div>
       <a href="/login" className=" bg-white text-black mx-[200px] text-3xl p-[30px] font-serif text-center rounded-xl hover:underline hover:text-white hover:bg-neutral-900">GET STARTED ➟</a>
       </div>
-      <img src="" alt="" />
+      <div className="mt-20 mr-28">
+      <img className="rounded-2xl" src="https://media.istockphoto.com/id/1555595435/photo/portrait-of-beautiful-girl-dressed-in-a-traditional-indian-national-suit-jewelry-set-blouse.webp?b=1&s=170667a&w=0&k=20&c=6E0r3yRLUmc-0nccTxiYbPJohNZhhUh-ILKVhN4JBxw=" alt="" />
+      </div>
+     
     </div>
     {/* Text Above Banner */}
     <div className="banner-text">
