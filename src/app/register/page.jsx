@@ -1,8 +1,43 @@
-
+"use client";
+import axios from 'axios';
+import {useState} from 'react'
 export default function Register() {
-   
-
-
+  const [formData, setFormData] = useState({
+    username : "",
+    phoneno : "",
+    email : "",
+    password : ""
+  })
+  const handleChange= (e)=>{
+       const {name,value} = e.target;
+       setFormData({
+        ...formData,
+        [name] : value
+       })
+  }
+  const handleSubmit = async (e)=>{
+        e.preventDefault();
+         try {
+          const response =await axios.post("https://e-commerce-eq1k.onrender.com/userregister",formData)
+          .then(resp=>{
+            console.log(resp.data)
+         })
+          .catch(err=>{
+            console.log(err)
+          });
+          
+          setFormData({
+            username : "",
+            phoneno : "",
+            email : "",
+            password : ""
+          })
+         } catch (error) {
+          console.log("cannot send data to backend error is : "+error)
+         }
+         
+  }
+  
   return (
     <div>
       <div className="flex items-center justify-center min-h-screen bg-white-900">
@@ -19,7 +54,9 @@ export default function Register() {
         <input
           type="text"
           className="w-full p-2 border border-gray-300 mt-2 rounded-md placeholder:font-light placeholder:text-gray-500"
-          name="Username"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
           id="Username"
           placeholder="Enter Your Username"
         />
@@ -33,7 +70,9 @@ export default function Register() {
           <input
             type="text"
             className="w-full p-2 border border-gray-300 mt-2 mb-1.5 rounded-md placeholder:font-light placeholder:text-gray-500"
-            name="Phoneno"
+            name="phoneno"
+            value={formData.phoneno}
+            onChange={handleChange}
             id="phoneno"
             placeholder="Enter Your Phone no"
           />
@@ -44,7 +83,9 @@ export default function Register() {
         <input
           type="text"
           className="w-full p-2 border border-gray-300 mt-2 rounded-md placeholder:font-light placeholder:text-gray-500"
-          name="Email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
           id="Email"
           placeholder="Enter Your Mail"
         />
@@ -53,16 +94,25 @@ export default function Register() {
         <span className="mb-2 text-md">Password</span>
         <input
           type="password"
-          name="pass"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
           id="pass"
           placeholder="Enter Your Password"
           className="w-full p-2 border border-gray-300 mt-2 rounded-md placeholder:font-light placeholder:text-gray-500"
         />
       </div>
-      <button className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300">
+      <button className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300"
+      onClick={handleSubmit}
+      >
         Sign up
       </button>
-      
+      <div className="text-center text-gray-400">
+        Don&apost have an account?
+        <span className="font-bold text-black hover:text-blue-500 hover:underline cursor-pointer">
+          Sign up for free
+        </span>
+      </div>
     </div>
     {/* right side */}
     <div className="ecommerce">
