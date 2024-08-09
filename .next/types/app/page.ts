@@ -1,4 +1,4 @@
-// File: C:\Users\nakul\OneDrive\Desktop\Chat Application Project\realtime-chat-app-frontend\src\app\page.jsx
+// File: C:\Users\nakul\Desktop\E-commerce\E-commerce-frontend\src\app\page.jsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
