@@ -1,5 +1,12 @@
 
 export default function Login() {
+
+
+
+
+
+
+
   return (
     <div>
       <div className="flex items-center justify-center h-5/6 pb-12 bg-white-900">
@@ -18,11 +25,12 @@ export default function Login() {
             +91
           </div>
           <input
-            type="text"
+            type="number"
             className="w-full p-2 border border-gray-300 mt-1.5 mb-1.5 rounded-md placeholder:font-light placeholder:text-gray-500"
             name="Phoneno"
             id="phoneno"
             placeholder="Enter Your Phone no"
+           
           />
         </div>
       </div>
@@ -33,19 +41,20 @@ export default function Login() {
           name="pass"
           id="pass"
           placeholder="Enter Your Password"
+          
           className="w-full p-2 border border-gray-300 mt-2 rounded-md placeholder:font-light placeholder:text-gray-500"
         />
       </div>
       <div className="flex justify-between w-full py-4">
         <div className="mr-24">
-          <input type="checkbox" name="ch" id="ch" className="mr-2" />
-          <span className="text-md">Remember for 30 days</span>
+         
         </div>
         <span className="font-bold text-md hover:text-blue-500 hover:underline cursor-pointer">
           Forgot password
         </span>
       </div>
-      <button className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300">
+      <button className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300"
+      >
         Sign in
       </button>
       <button className="w-full border border-gray-300 text-md p-2 rounded-lg mb-6 hover:bg-black hover:text-white">
