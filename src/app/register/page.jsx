@@ -107,12 +107,7 @@ export default function Register() {
       >
         Sign up
       </button>
-      <div className="text-center text-gray-400">
-        Don&apost have an account?
-        <span className="font-bold text-black hover:text-blue-500 hover:underline cursor-pointer">
-          Sign up for free
-        </span>
-      </div>
+      
     </div>
     {/* right side */}
     <div className="ecommerce">
