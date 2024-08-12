@@ -1,5 +1,38 @@
-
+"use client"
+import {useState} from "react"
+import axios from 'axios';
 export default function Login() {
+  const [loginData, setLoginData] = useState({
+    phoneno : "",
+    password : ""
+  })
+  const handleChange = (e : any) : void=>{
+       const {name,value} = e.target;
+       setLoginData({
+        ...loginData,
+       [name]:value
+       })
+  }
+  const handleSubmit= async (e : any)=>{
+     e.preventDefault();
+        try {
+          const result = await axios.post("http://localhost:8000/loginuser",loginData)
+          .then(result =>{
+           console.log(result)
+           
+          })
+          .catch(err => {
+            console.log("Error in sending data to api in handleSubmit ")
+            console.log(err)
+          })
+        } catch (error) {
+          console.log(error)
+        }
+        // setLoginData({
+        //   phoneno : "",
+        //   password : ""
+        // })
+  }
   return (
     <div>
       <div className="flex items-center justify-center h-5/6 pb-12 bg-white-900">
@@ -20,7 +53,9 @@ export default function Login() {
           <input
             type="number"
             className="w-full p-2 border border-gray-300 mt-1.5 mb-1.5 rounded-md placeholder:font-light placeholder:text-gray-500"
-            name="Phoneno"
+            name="phoneno"
+            value={loginData.phoneno}
+            onChange={handleChange}
             id="phoneno"
             placeholder="Enter Your Phone no"
            
@@ -31,8 +66,10 @@ export default function Login() {
         <span className="mb-2 text-md">Password</span>
         <input
           type="password"
-          name="pass"
+          name="password"
+          value={loginData.password}
           id="pass"
+          onChange={handleChange}
           placeholder="Enter Your Password"
           
           className="w-full p-2 border border-gray-300 mt-2 rounded-md placeholder:font-light placeholder:text-gray-500"
@@ -47,6 +84,7 @@ export default function Login() {
         </span>
       </div>
       <button className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300"
+      onClick={handleSubmit}
       >
         Sign in
       </button>
