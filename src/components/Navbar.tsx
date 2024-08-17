@@ -7,7 +7,7 @@ export default function Navbar() {
   
   <header className="bg-white">
     <div className="container mx-auto shadow-lg px-6 py-3 flex justify-between items-center">
-      <a href="/" className="text-gray-800 text-2xl font-bold font-serif ml-8">
+      <a href="/" className="text-gray-800 text-2xl font-bold font-serif ml-8 sm:text-red-800">
         PERSONA
       </a>
       <nav className="space-x-6" style={{ paddingLeft: 180 }}>
