@@ -4,10 +4,10 @@ import NavLInks  from "./NavLinks";
 export default function Navbar() {
   return (
     <header className="bg-white">
-      <div className="container shadow-lg sm:shadow-none px-6 py-3 flex justify-between sm:flex-col flex-row items-center">
+      <div className="shadow-lg sm:w-auto sm:shadow-none px-6 py-3 flex justify-between sm:flex-col flex-row items-center">
         <a
           href="/"
-          className="text-gray-800 text-2xl font-bold font-serif ml-8 sm:ml-14"
+          className="text-gray-800 text-2xl font-bold font-serif ml-8 sm:ml-5"
         >
           PERSONA
         </a>

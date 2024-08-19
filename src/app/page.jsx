@@ -38,9 +38,9 @@ export default function page(props) {
       <div className="banner-text">
         <h1 className="text-5xl  mb-4">OUR PRODUCTS</h1>
       </div>
-      <section className="container mx-auto px-6 py-12">
-        <div className="grid sm:grid-cols-1 grid-cols-4 gap-6 ">
-          <div className="bg-white p-6 rounded-lg shadow-2xl bg-zinc-50 text-center w-80">
+      <section className="container px-6 py-12">
+        <div className="grid grid-cols-4 gap-6 sm:flex sm:flex-col">
+          <div className="bg-white p-6 rounded-lg shadow-2xl sm:ml-7 bg-zinc-50 text-center w-80">
             <img
               src="https://rukminim2.flixcart.com/image/640/768/xif0q/shopsy-t-shirt/6/4/d/xl-shts-black-dressbiz-original-imagzehuuhgdhrpz.jpeg?q=60&crop=false"
               alt="cloth1"
@@ -53,7 +53,7 @@ export default function page(props) {
               Add to Cart
             </button>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-2xl bg-zinc-50 text-center w-80">
+          <div className="bg-white p-6 sm:ml-7 rounded-lg shadow-2xl bg-zinc-50 text-center w-80">
             <img
               src="https://rukminim2.flixcart.com/image/440/284/xif0q/shopsy-track-pant/c/g/x/30-tiger-style-tigerstyle-original-imah2b4tczqre6qg.jpeg?q=60"
               alt="cloth1"
