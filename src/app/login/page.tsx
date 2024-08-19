@@ -36,7 +36,7 @@ export default function Login() {
   return (
     <div>
       <div className="flex items-center justify-center h-5/6 pb-12 bg-white-900">
-  <div className="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+  <div className="relative flex m-6 space-y-8 bg-white shadow-2xl rounded-2xl flex-row space-y-0">
     {/* left side */}
     <div className="flex flex-col justify-start p-8 md:p-14">
       <i>
@@ -134,8 +134,8 @@ export default function Login() {
     <div className="ecommerce">
       <img
         src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="Background "
-        className="w-[550px] h-full hidden rounded-r-2xl md:block object-cover"
+        alt="Background"
+        className="w-[550px] h-full sm:hidden rounded-r-2xl md:block object-cover"
       />
     </div>
   </div>

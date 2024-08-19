@@ -40,8 +40,8 @@ export default function Register() {
   
   return (
     <div>
-      <div className="flex items-center justify-center min-h-screen bg-white-900">
-  <div className="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+      <div className="flex items-center justify-center mt-10 bg-white-900">
+  <div className="relative flex m-6 mt-0 space-y-8 bg-white shadow-2xl rounded-2xl flex-row space-y-0">
     {/* left side */}
     <div className="flex flex-col justify-start p-8 md:p-14">
       <i>
@@ -114,7 +114,7 @@ export default function Register() {
       <img
         src="https://images.unsplash.com/photo-1508427953056-b00b8d78ebf5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="Background"
-        className="w-[550px] h-full hidden rounded-r-2xl md:block object-cover"
+        className="w-[550px] h-full sm:hidden rounded-r-2xl md:block object-cover"
       />
     </div>
   </div>
