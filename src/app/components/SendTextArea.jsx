@@ -32,7 +32,7 @@ export default function SendTextArea() {
     }
   return (
     <div>
-    
+  
         <div className='ml-10 font-semibold text-lg mt-5'>
         Enter text to Send : 
 
