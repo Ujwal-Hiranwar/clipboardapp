@@ -1,5 +1,5 @@
 'use client'
-
+import axios from "axios";
 import { useState, useRef } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,42 +10,95 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Badge } from "@/components/ui/badge"
 import { Send, Clipboard, Lock, File, Upload, Download, X, FileText, Share2, Eye, EyeOff, Shield, RefreshCw } from 'lucide-react'
-
+import { AlertBox } from './AlertBox'
 export function StreamlinedClipboard() {
   const [activeTab, setActiveTab] = useState('share')
   const [contentType, setContentType] = useState<'text' | 'file'>('text')
   const [inputContent, setInputContent] = useState('')
   const [outputContent, setOutputContent] = useState('')
-  const [otp, setOtp] = useState('')
+  const [shareotp, setShareOtp] = useState('')
+  const [enteredotp, setEnteredotp] = useState('')
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [isEncrypted, setIsEncrypted] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [expirationTime, setExpirationTime] = useState('5')
+  const [isAlertVisible, setIsAlertVisible] = useState({
+    showNullInputAlert: false,
+    showOTPAlert: false,
+    showBoundExeedAlert: false
+  })
 
-  const handleTextSubmit = () => {
-    // if (contentType === 'text') {
-    //   console.log('Sharing text:', inputContent)
-    // } else {
-    //   console.log('Sharing file:', selectedFile)
-    // }
-    // console.log('Encrypted:', isEncrypted)
-    // console.log('Expiration time:', expirationTime, 'minutes')
+
+
+   const handleTextSubmit = async () => {
+    console.log(selectedFile)
+    if(inputContent === "" || inputContent === null){
+      
+       setIsAlertVisible({
+        showNullInputAlert: true,
+        showOTPAlert : false,
+        showBoundExeedAlert: false
+       })
+    }
+    else if(inputContent.length > 500){
+      setIsAlertVisible({ 
+        showNullInputAlert: false,
+        showOTPAlert: false,
+        showBoundExeedAlert: true
+      })
+    }
+    else{
+      
+      setIsAlertVisible({
+        showNullInputAlert: false,
+        showOTPAlert: true,
+        showBoundExeedAlert: false
+      })
+      
+      console.log(shareotp)
+      try {
+        const oneTimePassword = Math.floor(1000 + Math.random() * 9000).toString()
+        const response = await axios.post(`http://localhost:9090/api/post/text`, {
+          "createdUserRid": null,
+         "deletedByUser": false,
+         "encryptedContent": inputContent,
+         "encryptionKey": "secure-key",
+        "otp": oneTimePassword,
+        "expiryTime": "2025-03-20T10:00:00"
+        }, {
+          headers: { "Content-Type": "application/json" },
+        });
+        setShareOtp(oneTimePassword)
+      } catch (error) {
+        console.error("Error sending clipboard data:", error);
+        throw error;
+      }
+    }
     
-    // Simulate generating a share link
-    setShareLink(`https://clipboard.example.com/${Math.random().toString(36).substr(2, 9)}`)
     
-    // Reset form
     setInputContent('')
     setSelectedFile(null)
     setIsEncrypted(false)
     setExpirationTime('5')
+   
   }
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if(event.target.files && event.target.files.length > 1){
+      alert('Please select only one file.')
+    }
     const file = event.target.files ? event.target.files[0] : null
+
     setSelectedFile(file)
   }
 
+  const closeAlert = () => {
+    setIsAlertVisible({
+      showNullInputAlert: false,
+      showOTPAlert: false,
+      showBoundExeedAlert: false
+    })
+  }
   const removeFile = () => {
     setSelectedFile(null)
     if (fileInputRef.current) {
@@ -53,20 +106,33 @@ export function StreamlinedClipboard() {
     }
   }
 
-  const handleReceive = () => {
-    // Simulate receiving content
-    if (otp === '123456') {
-      setOutputContent('This is the received content.')
+  const handleReceive =async () => {
+    try {
+      const response = await axios.get(`http://localhost:9090/api/get/text/${enteredotp.toString()}`);
+      console.log("Clipboard Data:", response.data);
+      setOutputContent(response.data.encryptedContent)
+      return response.data;  
+    } catch (error) {
+      console.error("Error fetching clipboard data:", error);
+      return null;  // Handle errors gracefully
+    }
+    if (shareotp === enteredotp) {
+      
     } else {
       alert('Invalid OTP')
     }
   }
 
-  const [shareLink, setShareLink] = useState('')
+  
 
   return (
+    
     <Card className="w-full max-w-3xl mx-auto">
+      {isAlertVisible.showOTPAlert && shareotp ? <AlertBox type="success" heading="Successfully Sent Content!" message={shareotp} isVisible={isAlertVisible.showOTPAlert} onClose={closeAlert} /> : null}
+      {isAlertVisible.showNullInputAlert && <AlertBox type="error" heading="Empty Content" message="Please enter some content to share." isVisible={isAlertVisible.showNullInputAlert} onClose={closeAlert} /> }
+      {isAlertVisible.showBoundExeedAlert && <AlertBox type="error" heading="Content length Exceeded" message="Content length should not exceed 500 characters." isVisible={isAlertVisible.showBoundExeedAlert} onClose={closeAlert} />}
       <CardHeader>
+        
         <CardTitle>Streamlined Online Clipboard</CardTitle>
         <CardDescription>Securely share text and files with ease</CardDescription>
       </CardHeader>
@@ -171,23 +237,16 @@ export function StreamlinedClipboard() {
               </div>
               
               <div className="flex justify-end">
-                <Button onClick={handleTextSubmit} className="w-32">
+              <Button onClick={() => {
+                handleTextSubmit();
+              }}  className="w-32">
                   <Share2 className="mr-2 h-4 w-4" /> Share
                 </Button>
+                
+        
+                
               </div>
               
-              {shareLink && (
-                <div className="mt-4 p-2 bg-gray-100 rounded flex items-center justify-between">
-                  <span className="text-sm truncate mr-2">{shareLink}</span>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => navigator.clipboard.writeText(shareLink)}
-                  >
-                    <Clipboard className="h-4 w-4" />
-                  </Button>
-                </div>
-              )}
             </div>
           </TabsContent>
           <TabsContent value="receive">
@@ -195,8 +254,8 @@ export function StreamlinedClipboard() {
               <Input
                 type="text"
                 placeholder="Enter OTP or share link"
-                value={otp}
-                onChange={(e) => setOtp(e.target.value)}
+                value={enteredotp}
+                onChange={(e) => setEnteredotp(e.target.value)}
               />
               <div className="flex justify-end">
                 <Button onClick={handleReceive} className="w-40">

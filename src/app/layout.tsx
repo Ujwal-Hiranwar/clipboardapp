@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "For You Clipboard",
+  title: "Secure Clipboard",
   description: "Share your text or files seamlessly to anyone",
 };
 
