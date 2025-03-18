@@ -27,11 +27,12 @@ export function StreamlinedClipboard() {
     showOTPAlert: false,
     showBoundExeedAlert: false
   })
-
+  const futureTime = new Date();
+  
 
 
    const handleTextSubmit = async () => {
-    console.log(selectedFile)
+    
     if(inputContent === "" || inputContent === null){
       
        setIsAlertVisible({
@@ -55,24 +56,47 @@ export function StreamlinedClipboard() {
         showBoundExeedAlert: false
       })
       
-      console.log(shareotp)
-      try {
+      
+      
         const oneTimePassword = Math.floor(1000 + Math.random() * 9000).toString()
-        const response = await axios.post(`http://localhost:9090/api/post/text`, {
-          "createdUserRid": null,
-         "deletedByUser": false,
-         "encryptedContent": inputContent,
-         "encryptionKey": "secure-key",
-        "otp": oneTimePassword,
-        "expiryTime": "2025-03-20T10:00:00"
-        }, {
-          headers: { "Content-Type": "application/json" },
-        });
+        futureTime.setMinutes(futureTime.getMinutes() + Number(expirationTime))
+        if(isEncrypted == true){
+          try {
+            const response = await axios.post(`http://localhost:9090/api/encrypted/save`, {
+              "createdUserRid": null,
+             "deletedByUser": false,
+             "content": inputContent,
+             "otp": oneTimePassword,
+             "expiryTime": futureTime.toISOString()
+            }, {
+              headers: { "Content-Type": "application/json" },
+            });
+            console.log("Clipboard Data:", response.data);
+          } catch (error) {
+            console.error("Error sending clipboard data:", error);
+            throw error;
+          }
+        }else{
+          try {
+            const response = await axios.post(`http://localhost:9090/api/post/text`, {
+              "createdUserRid": null,
+             "deletedByUser": false,
+             "encryptedContent": inputContent,
+             "encryptionKey": null,
+            "otp": oneTimePassword,
+            "expiryTime": futureTime.toISOString()
+            }, {
+              headers: { "Content-Type": "application/json" },
+            });
+            console.log("Clipboard Data:", response.data);
+          } catch (error) {
+            console.log("error in sending data to backend "+error)
+            throw error;
+          }
+        }
+        
         setShareOtp(oneTimePassword)
-      } catch (error) {
-        console.error("Error sending clipboard data:", error);
-        throw error;
-      }
+      
     }
     
     
@@ -107,21 +131,19 @@ export function StreamlinedClipboard() {
   }
 
   const handleReceive =async () => {
+  
     try {
-      const response = await axios.get(`http://localhost:9090/api/get/text/${enteredotp.toString()}`);
-      console.log("Clipboard Data:", response.data);
-      setOutputContent(response.data.encryptedContent)
-      return response.data;  
+      const response = await axios.get(`http://localhost:9090/api/encrypted/retrieve/${enteredotp.toString()}`);
+      setOutputContent(response.data)
+      return response.data;
     } catch (error) {
       console.error("Error fetching clipboard data:", error);
-      return null;  // Handle errors gracefully
+      return null;  
     }
-    if (shareotp === enteredotp) {
-      
-    } else {
-      alert('Invalid OTP')
-    }
+  
+
   }
+  
 
   
 
@@ -226,7 +248,13 @@ export function StreamlinedClipboard() {
                 <select
                   id="expiration-time"
                   value={expirationTime}
-                  onChange={(e) => setExpirationTime(e.target.value)}
+                  onChange={
+                    (e) => {
+                      
+                      setExpirationTime(e.target.value)
+                    }
+                    
+                    }
                   className="border rounded p-1 text-sm"
                 >
                   <option value="5">5 minutes</option>
