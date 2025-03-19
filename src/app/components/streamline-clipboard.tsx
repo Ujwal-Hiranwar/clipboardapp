@@ -62,7 +62,7 @@ export function StreamlinedClipboard() {
         futureTime.setMinutes(futureTime.getMinutes() + Number(expirationTime))
         if(isEncrypted == true){
           try {
-            const response = await axios.post(`https://my-clipboard-app-6i9m.onrender.com/api/encrypted/save`, {
+            const response = await axios.post(`http://localhost:9090/api/encrypted/save`, {
               "createdUserRid": null,
              "deletedByUser": false,
              "content": inputContent,
@@ -78,7 +78,7 @@ export function StreamlinedClipboard() {
           }
         }else{
           try {
-            const response = await axios.post(`https://my-clipboard-app-6i9m.onrender.com/api/post/text`, {
+            const response = await axios.post(`http://localhost:9090/api/post/text`, {
               "createdUserRid": null,
              "deletedByUser": false,
              "encryptedContent": inputContent,
