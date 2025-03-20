@@ -28,7 +28,7 @@ export function StreamlinedClipboard() {
     showBoundExeedAlert: false
   })
   const futureTime = new Date();
-  const backendAPI= "persistent-klara-myprojectclipboard-93dce232.koyeb.app"
+  const backendAPI= "https://persistent-klara-myprojectclipboard-93dce232.koyeb.app"
 
 
    const handleTextSubmit = async () => {
