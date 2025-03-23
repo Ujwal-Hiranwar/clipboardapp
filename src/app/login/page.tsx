@@ -31,7 +31,7 @@ export default function LoginPage() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
       <Navbar />
-      <main className="flex-1 container flex flex-col items-center justify-center p-4 md:p-8">
+      <main className="flex mt-16 flex-col items-center  justify-center p-4 ">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
