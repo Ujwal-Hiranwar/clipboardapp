@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   description: "SyncPaste is a secure online clipboard that lets you instantly share text and files using a 4-digit OTP. No sign-up required. Try it now!",
   keywords : "syncpaste, ujwal syncpaste,ujwal hiranwar,online clipboard, instant clipboard, text sharing, file sharing, secure clipboard, OTP clipboard, cloud clipboard",
   openGraph:{
-    url:"https://foryouclipboardapp.vercel.app/",
     type:"website"
   }
 };
