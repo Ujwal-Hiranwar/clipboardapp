@@ -52,7 +52,7 @@ export default function Navbar() {
           </SheetTrigger>
           <SheetContent side="right" className="w-[250px] sm:w-[300px]">
             <div className="flex flex-col gap-6 mt-8">
-              <Link
+              <Link 
                 href="/login"
                 className={`text-lg font-medium ${pathname === "/login" ? "text-primary" : ""}`}
                 onClick={() => setIsOpen(false)}
